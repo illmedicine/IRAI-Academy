@@ -1,18 +1,56 @@
 // DOM Elements
 const sidebarToggle = document.querySelector('.sidebar-toggle');
 const sidebar = document.querySelector('.sidebar');
+const mainContent = document.querySelector('.main-content');
 const sidebarLinks = document.querySelectorAll('.sidebar-link');
 const enrollmentForm = document.getElementById('enrollmentForm');
 
-// Sidebar Toggle
-sidebarToggle.addEventListener('click', () => {
-    sidebar.classList.toggle('active');
+// Create floating toggle button if it doesn't exist
+if (!sidebarToggle) {
+    const toggleBtn = document.createElement('button');
+    toggleBtn.className = 'sidebar-toggle';
+    toggleBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    document.body.appendChild(toggleBtn);
+    
+    // Update reference
+    const newToggle = document.querySelector('.sidebar-toggle');
+    newToggle.addEventListener('click', toggleSidebar);
+} else {
+    sidebarToggle.addEventListener('click', toggleSidebar);
+}
+
+// Toggle sidebar function
+function toggleSidebar() {
+    const isOpen = sidebar.classList.contains('open');
+    
+    if (isOpen) {
+        sidebar.classList.remove('open');
+        mainContent.classList.remove('shifted');
+        sidebarToggle.classList.remove('active');
+    } else {
+        sidebar.classList.add('open');
+        mainContent.classList.add('shifted');
+        sidebarToggle.classList.add('active');
+    }
+}
+
+// Close sidebar when clicking outside on mobile
+document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 1024) {
+        if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+            sidebar.classList.remove('open');
+            mainContent.classList.remove('shifted');
+            sidebarToggle.classList.remove('active');
+        }
+    }
 });
 
 // Close sidebar when clicking on a link
 sidebarLinks.forEach(link => {
     link.addEventListener('click', () => {
-        sidebar.classList.remove('active');
+        sidebar.classList.remove('open');
+        mainContent.classList.remove('shifted');
+        sidebarToggle.classList.remove('active');
         
         // Remove active class from all links
         sidebarLinks.forEach(l => l.classList.remove('active'));
@@ -22,12 +60,12 @@ sidebarLinks.forEach(link => {
     });
 });
 
-// Close sidebar when clicking outside on mobile
-document.addEventListener('click', (e) => {
-    if (window.innerWidth <= 1024) {
-        if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
-            sidebar.classList.remove('active');
-        }
+// Handle window resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 1024) {
+        sidebar.classList.remove('open');
+        mainContent.classList.remove('shifted');
+        sidebarToggle.classList.remove('active');
     }
 });
 
@@ -68,6 +106,27 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// Animate journey steps on scroll
+const journeySteps = document.querySelectorAll('.step');
+const animateSteps = () => {
+    const scrollPos = window.scrollY;
+    const classesSection = document.getElementById('classes');
+    
+    if (classesSection) {
+        const sectionTop = classesSection.offsetTop;
+        
+        if (scrollPos >= sectionTop - 200) {
+            journeySteps.forEach((step, index) => {
+                setTimeout(() => {
+                    step.classList.add('active');
+                }, index * 200);
+            });
+        }
+    }
+};
+
+window.addEventListener('scroll', animateSteps);
 
 // Enrollment Form Submission
 if (enrollmentForm) {
