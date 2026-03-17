@@ -18,14 +18,7 @@ export default function CourseCard({ icon, title, subtitle, features, onClick })
         e.currentTarget.style.boxShadow = 'none';
       }}
     >
-      {/* Gradient overlay */}
-      <div 
-        className="h-48 relative" 
-        style={{
-          background: 'linear-gradient(to right, rgba(99, 102, 241, 0.1), rgba(147, 51, 234, 0.1))',
-        }}
-      />
-      
+            
       {/* Content */}
       <div className="px-8 pt-8 pb-6 relative">
         <div className="w-20 h-20 rounded-2xl flex items-center justify-center text-4xl mb-6 relative z-10" style={{

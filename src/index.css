@@ -41,8 +41,7 @@
 
   .section-title {
     font-family: 'Space Grotesk', sans-serif;
-    @apply text-3xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent;
-    background: linear-gradient(to right, #ffffff 0%, #c084fc 50%, #ec4899 100%);
+    @apply text-3xl md:text-5xl font-bold mb-4 text-white;
   }
 
   .section-subtitle {
@@ -104,4 +103,21 @@
 
 .animate-pulse {
   animation: pulse 4s ease-in-out infinite;
+}
+
+/* 3D Flip Card Styles */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
 }

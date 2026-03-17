@@ -1,4 +1,5 @@
 import CourseCard from '../components/CourseCard'
+import TeacherCard from '../components/TeacherCard'
 
 export default function HomePage({ showCourse }) {
   const courses = [
@@ -96,54 +97,157 @@ export default function HomePage({ showCourse }) {
       </section>
 
       {/* About Section */}
-      <section className="section bg-white/[0.02]" id="about">
-        <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="section-title">About IRAI ACADEMY</h2>
-            <p className="section-subtitle">Powered by Illy Robotic Instruments • Buffalo, NY</p>
+      <section className="section bg-gradient-to-br from-indigo-500/5 via-purple-500/5 to-pink-500/5 relative overflow-hidden" id="about">
+        {/* Background decoration */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-20 left-20 w-32 h-32 bg-indigo-500 rounded-full blur-2xl animate-pulse" />
+          <div className="absolute bottom-20 right-20 w-40 h-40 bg-purple-500 rounded-full blur-2xl animate-pulse delay-1000" />
+        </div>
+        
+        <div className="container relative z-10">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center gap-3 mb-6">
+              <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
+              <span className="text-indigo-400 font-semibold text-sm uppercase tracking-wider">About</span>
+              <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
+            </div>
+            <h2 className="section-title bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              About IRAI ACADEMY
+            </h2>
+            <p className="section-subtitle flex items-center justify-center gap-2 mt-4">
+              <span className="inline-flex items-center gap-1">
+                <span className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse" />
+                Powered by Illy Robotic Instruments
+              </span>
+              <span className="text-gray-600">•</span>
+              <span className="inline-flex items-center gap-1">
+                <span className="w-2 h-2 bg-purple-500 rounded-full animate-pulse delay-500" />
+                Buffalo, NY
+              </span>
+            </p>
           </div>
 
-          <div className="max-w-3xl mx-auto space-y-6 text-gray text-lg">
-            <p>
-              IRAI Academy is a next-generation learning platform designed for the AI era. We combine hands-on project-based learning with cutting-edge AI tools to accelerate your development journey.
-            </p>
-            <p>
-              Our courses are built with industry professionals and cover real-world technologies used by top companies. Every project in our curriculum is designed to be portfolio-ready and employer-impressive.
-            </p>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="text-center md:text-left">
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  IRAI Academy is a next-generation learning platform designed for the AI era. We combine hands-on project-based learning with cutting-edge AI tools to accelerate your development journey. Our courses are built with industry professionals and cover real-world technologies used by top companies. Every project in our curriculum is designed to be portfolio-ready and employer-impressive.
+                </p>
+              </div>
+              <div className="flex justify-center md:justify-end">
+                <img 
+                  src="/img2.jpg" 
+                  alt="IRAI Academy" 
+                  className="rounded-2xl max-w-full h-auto shadow-2xl"
+                  style={{ maxHeight: '400px' }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="section" id="features">
-        <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="section-title">Why Choose IRAI?</h2>
+      <section className="section relative" id="features">
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(99, 102, 241, 0.5) 1px, transparent 1px)`,
+            backgroundSize: '50px 50px'
+          }} />
+        </div>
+        
+        <div className="container relative z-10">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center gap-3 mb-6">
+              <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-purple-500 to-transparent" />
+              <span className="text-purple-400 font-semibold text-sm uppercase tracking-wider">Features</span>
+              <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-purple-500 to-transparent" />
+            </div>
+            <h2 className="section-title bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 bg-clip-text text-transparent">
+              Why Choose IRAI?
+            </h2>
+            <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+              Discover the advantages that set our learning platform apart from traditional education
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+            <div className="bg-white/5 border border-white/10 rounded-lg p-6">
+              <h3 className="text-xl font-bold text-white mb-3">AI-Powered Learning</h3>
+              <p className="text-gray-300 mb-4">
+                Learn to work alongside AI tools like GitHub Copilot and ChatGPT for faster, smarter development.
+              </p>
+              <div className="text-gray-400 space-y-1 text-sm">
+                <p>GitHub Copilot</p>
+                <p>ChatGPT Integration</p>
+                <p>AI Code Review</p>
+                <p>Smart Suggestions</p>
+              </div>
+            </div>
+            
+            <div className="bg-white/5 border border-white/10 rounded-lg p-6">
+              <h3 className="text-xl font-bold text-white mb-3">Real Projects</h3>
+              <p className="text-gray-300 mb-4">
+                Build portfolio-worthy projects from day one that will impress employers and clients.
+              </p>
+              <div className="text-gray-400 space-y-1 text-sm">
+                <p>Portfolio Ready</p>
+                <p>Live Deployment</p>
+                <p>Client Projects</p>
+                <p>Open Source</p>
+              </div>
+            </div>
+            
+            <div className="bg-white/5 border border-white/10 rounded-lg p-6">
+              <h3 className="text-xl font-bold text-white mb-3">Community Support</h3>
+              <p className="text-gray-300 mb-4">
+                Join our Discord community of developers, get feedback, and collaborate with peers.
+              </p>
+              <div className="text-gray-400 space-y-1 text-sm">
+                <p>24/7 Discord</p>
+                <p>Code Reviews</p>
+                <p>Pair Programming</p>
+                <p>Mentorship</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Master Teachers Section */}
+      <section className="section bg-white/[0.02]" id="teachers">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="section-title">Master Teachers</h2>
+            <p className="section-subtitle">Learn from industry experts and AI pioneers</p>
+          </div>
+
+          <div className="flex gap-12 max-w-7xl mx-auto justify-center px-8">
             {[
               {
-                icon: '🤖',
-                title: 'AI-Powered Learning',
-                description: 'Learn to work alongside AI tools like GitHub Copilot and ChatGPT for faster, smarter development.'
+                name: 'ILLYMEDS',
+                title: 'Full-Stack Development & AI Integration',
+                bio: 'Pioneering developer with 15+ years building scalable AI-powered applications. Former architect at leading tech companies, specializing in React, Node.js, and machine learning integration. Passionate about teaching the next generation of developers.',
+                expertise: ['React.js', 'Node.js', 'AI/ML', 'Cloud Architecture', 'DevOps'],
+                icon: '�'
               },
               {
-                icon: '🎯',
-                title: 'Real Projects',
-                description: 'Build portfolio-worthy projects from day one that will impress employers and clients.'
+                name: 'BABIX',
+                title: 'Mobile App Development & UX Design',
+                bio: 'Award-winning mobile developer with apps featured by Apple and Google. Expert in cross-platform development, performance optimization, and creating intuitive user experiences. Led development of apps with 10M+ downloads.',
+                expertise: ['React Native', 'Flutter', 'iOS/Android', 'UI/UX Design', 'Performance'],
+                icon: '�'
               },
               {
-                icon: '👥',
-                title: 'Community Support',
-                description: 'Join our Discord community of developers, get feedback, and collaborate with peers.'
+                name: 'RUSH',
+                title: 'Business Strategy & No-Code Development',
+                bio: 'Serial entrepreneur who built and sold 3 startups for $50M+. Expert in no-code platforms, growth hacking, and fundraising. Helps developers transition into tech founders and build profitable businesses.',
+                expertise: ['No-Code', 'Business Strategy', 'Growth Hacking', 'Fundraising', 'Product Management'],
+                icon: '💼'
               }
-            ].map((feature, idx) => (
-              <div key={idx} className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/8 transition-all">
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold mb-3 font-space-grotesk">{feature.title}</h3>
-                <p className="text-gray">{feature.description}</p>
-              </div>
+            ].map((teacher, idx) => (
+              <TeacherCard key={idx} teacher={teacher} />
             ))}
           </div>
         </div>
