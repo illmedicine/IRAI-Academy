@@ -257,9 +257,12 @@ export default function HomePage({ showCourse }) {
                 bio: 'IRAI\'s Chief Architect and a versatile software engineer specializing in full-stack development, mobile applications, and UX design. Babix is the creative engine behind IRAI\'s course content — curating all demonstration videos, hands-on coursework, and help materials that power the academy. Beyond coding, he teaches aspiring creators how to stream, build an audience, and become professional content creators. His mission is making development accessible through clear, engaging instruction.',
                 courses: [
                   { icon: '🌐', label: 'Web Development' },
-                  { icon: '🎬', label: 'Content Creator Training' }
+                  { icon: '⚛️', label: 'React.js' },
+                  { icon: '🟢', label: 'Node.js' },
+                  { icon: '📡', label: 'Streaming' },
+                  { icon: '🎬', label: 'Content Creator' }
                 ],
-                expertise: ['React.js', 'Node.js', 'Mobile Dev', 'UX Design', 'Streaming', 'Content Creation'],
+                expertise: ['React.js', 'Node.js', 'Web Dev', 'Streaming', 'Content Creator'],
                 accentGradient: 'from-purple-500 via-pink-500 to-rose-500'
               },
               {
