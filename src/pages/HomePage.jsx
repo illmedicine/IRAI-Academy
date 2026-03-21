@@ -42,6 +42,19 @@ export default function HomePage() {
         'Growth strategies',
         'Funding preparation'
       ]
+    },
+    {
+      id: 'content-creation',
+      path: '/Content-Creation',
+      icon: '🎬',
+      title: 'CONTENT CREATION',
+      subtitle: 'Build your audience and brand',
+      features: [
+        'Video production & editing',
+        'Live streaming mastery',
+        'Social media branding',
+        'Monetization strategies'
+      ]
     }
   ]
 
@@ -296,7 +309,7 @@ export default function HomePage() {
             <p className="section-subtitle">Specialized tracks for different career goals</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {courses.map(course => (
               <CourseCard
                 key={course.id}

@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage'
 import WebDevelopmentPage from './pages/WebDevelopmentPage'
 import MobileAppBuilderPage from './pages/MobileAppBuilderPage'
 import BusinessBuilderPage from './pages/BusinessBuilderPage'
+import ContentCreationPage from './pages/ContentCreationPage'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -33,6 +34,7 @@ function App() {
           <Route path="/Web-Development" element={<WebDevelopmentPage />} />
           <Route path="/Mobile-App-Builder" element={<MobileAppBuilderPage />} />
           <Route path="/Business-Builder" element={<BusinessBuilderPage />} />
+          <Route path="/Content-Creation" element={<ContentCreationPage />} />
         </Routes>
       </div>
     </div>
