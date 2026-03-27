@@ -191,15 +191,19 @@ export default function StudentPortalPage() {
               </span>
             )}
             {studentRoles.map(roleId => {
-              const key = roleToCurriculum[roleId]
-              if (!key) return null
-              const c = curriculumData[key]
+              const label = ROLE_LABELS[roleId]
               return (
-                <span key={roleId} className={`bg-white/5 border ${c.borderClass} px-3 py-1 rounded-full text-sm ${c.colorClass}`}>
-                  {c.icon} {c.roleName}
+                <span key={roleId} className="bg-white/10 text-gray-300 border border-white/20 px-3 py-1 rounded-full text-sm">
+                  {label}
                 </span>
               )
             })}
+            {/* Debug info */}
+            <div className="w-full text-center mt-4">
+              <p className="text-gray-500 text-xs">
+                Debug: isInstructor={isInstructor.toString()} | Roles: {studentRoles.join(', ') || 'None'} | User ID: {user?.id}
+              </p>
+            </div>
           </div>
 
           {/* Instructor Course Filter */}

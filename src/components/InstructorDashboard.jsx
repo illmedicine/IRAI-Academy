@@ -4,12 +4,26 @@ import { useDiscordAuth } from '../context/DiscordAuthContext'
 import { usePayment } from '../context/PaymentContext'
 
 export default function InstructorDashboard() {
-  const { user } = useDiscordAuth()
+  const { user, isInstructor, roles } = useDiscordAuth()
   const { payments } = usePayment()
   const [selectedCourse, setSelectedCourse] = useState('all')
   const [studentsData, setStudentsData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+
+  // Check if user is instructor
+  if (!isInstructor) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-red-400 text-2xl mb-4">🔒 Access Denied</div>
+          <p className="text-gray-400 mb-4">You need the IRAI Instructor role to access this dashboard.</p>
+          <p className="text-gray-500 text-sm">Required Role ID: 1485034990906638542</p>
+          <p className="text-gray-500 text-sm mt-2">Your current roles: {roles.join(', ') || 'None'}</p>
+        </div>
+      </div>
+    )
+  }
 
   // Course configuration
   const courses = {
