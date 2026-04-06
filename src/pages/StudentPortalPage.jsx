@@ -93,7 +93,7 @@ export default function StudentPortalPage() {
           <div className="container relative z-10 text-center max-w-2xl mx-auto">
             <div className="inline-block text-6xl mb-6">🎓</div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 font-space-grotesk bg-gradient-to-r from-white via-purple-300 to-pink-500 bg-clip-text text-transparent">
-              STUDENT PORTAL
+              CLASSROOM PORTAL
             </h1>
             <p className="text-xl text-gray mb-12">
               Access your personalized IRAI Academy coursework, curriculum, and projects. Sign in with your Discord account to get started.
@@ -174,7 +174,7 @@ export default function StudentPortalPage() {
         <div className="container relative z-10">
           <div className="text-center mb-8">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 font-space-grotesk bg-gradient-to-r from-white via-purple-300 to-pink-500 bg-clip-text text-transparent">
-              {isInstructor ? 'INSTRUCTOR DASHBOARD' : 'MY STUDENT PORTAL'}
+              {isInstructor ? 'INSTRUCTOR DASHBOARD' : 'CLASSROOM PORTAL'}
             </h1>
             <p className="text-gray text-lg">
               {isInstructor

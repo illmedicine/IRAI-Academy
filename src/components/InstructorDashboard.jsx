@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Users, DollarSign, Calendar, CheckCircle, XCircle, Clock, CreditCard, Wallet, BookOpen, TrendingUp } from 'lucide-react'
 import { useDiscordAuth } from '../context/DiscordAuthContext'
 import { usePayment } from '../context/PaymentContext'
@@ -54,16 +54,12 @@ export default function InstructorDashboard() {
   }
 
   // Fetch Discord student data
-  useEffect(() => {
-    fetchStudentData()
-  }, [selectedCourse])
-
-  const fetchStudentData = async () => {
+  const fetchStudentData = useCallback(async () => {
     setLoading(true)
     setError(null)
     
     try {
-      const API_URL = 'https://illyrobotics.github.io/IRAI-Academy/api/discord-students'
+      const API_URL = '/api/discord-students' // Use relative URL for GitHub Pages
       
       let response
       if (selectedCourse === 'all') {
@@ -92,7 +88,11 @@ export default function InstructorDashboard() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [selectedCourse])
+
+  useEffect(() => {
+    fetchStudentData()
+  }, [fetchStudentData])
 
   // Mock data fallback
   const getMockData = () => {
