@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "deploy": "npm run build && npx gh-pages -d dist --silent",
-    "deploy-safe": "npm run build && npx gh-pages -d dist"
+    "deploy-safe": "npm run build && npx gh-pages -d dist",
+    "deploy-all": "npm run build && npx gh-pages -d dist && git add . && git commit -m \"Auto-deployment: $(date '+%Y-%m-%d %H:%M:%S')\" && git push origin main"
   },
   "dependencies": {
     "lucide-react": "^1.6.0",
