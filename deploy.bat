@@ -1,8 +1,8 @@
 @echo off
-REM IRAI Academy Deployment Script for Windows
-REM Prevents dual process conflicts by running build and deploy sequentially
+REM IRAI Academy Complete Deployment Script for Windows
+REM Builds, deploys, and commits all in one process
 
-echo Starting IRAI Academy deployment...
+echo Starting IRAI Academy complete deployment...
 
 REM Step 1: Build the project
 echo Step 1: Building the project...
@@ -22,19 +22,13 @@ if %ERRORLEVEL% NEQ 0 (
 )
 echo Deployment completed successfully!
 
-REM Step 3: Commit and push changes (if any)
-echo Step 3: Checking for changes to commit...
-git status --porcelain
-if %ERRORLEVEL% EQU 0 (
-    echo No changes to commit.
-) else (
-    echo Changes detected, committing and pushing...
-    git add .
-    git commit -m "Auto-deployment: %date% %time%"
-    git push origin main
-    echo Changes committed and pushed!
-)
+REM Step 3: Commit and push changes
+echo Step 3: Committing and pushing changes...
+git add .
+git commit -m "Auto-deployment: %date% %time%"
+git push origin main
+echo Changes committed and pushed!
 
-echo Deployment completed successfully!
+echo Complete deployment finished successfully!
 echo Site is live at: https://illyrobotics.github.io/IRAI-Academy/
 pause

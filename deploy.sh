@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# IRAI Academy Deployment Script
-# Prevents dual process conflicts by running build and deploy sequentially
+# IRAI Academy Complete Deployment Script
+# Builds, deploys, and commits all in one process
 
-echo "Starting IRAI Academy deployment..."
+echo "Starting IRAI Academy complete deployment..."
 
 # Step 1: Build the project
 echo "Step 1: Building the project..."
@@ -23,17 +23,12 @@ if [ $? -ne 0 ]; then
 fi
 echo "Deployment completed successfully!"
 
-# Step 3: Commit and push changes (if any)
-echo "Step 3: Checking for changes to commit..."
-if [[ -n $(git status --porcelain) ]]; then
-    echo "Changes detected, committing and pushing..."
-    git add .
-    git commit -m "Auto-deployment: $(date '+%Y-%m-%d %H:%M:%S')"
-    git push origin main
-    echo "Changes committed and pushed!"
-else
-    echo "No changes to commit."
-fi
+# Step 3: Commit and push changes
+echo "Step 3: Committing and pushing changes..."
+git add .
+git commit -m "Auto-deployment: $(date '+%Y-%m-%d %H:%M:%S')"
+git push origin main
+echo "Changes committed and pushed!"
 
-echo "Deployment completed successfully! 
+echo "Complete deployment finished successfully!
 Site is live at: https://illyrobotics.github.io/IRAI-Academy/"
