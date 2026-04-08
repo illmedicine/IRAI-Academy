@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "npm run build && npx gh-pages -d dist"
+    "deploy": "npm run build && npx gh-pages -d dist --silent",
+    "deploy-safe": "npm run build && npx gh-pages -d dist"
   },
   "dependencies": {
     "lucide-react": "^1.6.0",
