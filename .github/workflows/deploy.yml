@@ -1,8 +1,8 @@
 name: Deploy to GitHub Pages
 
+# DISABLED: Using gh-pages branch deployment instead of Actions
+# Re-enable push trigger once billing issue is resolved
 on:
-  push:
-    branches: ['main']
   workflow_dispatch:
 
 permissions:
